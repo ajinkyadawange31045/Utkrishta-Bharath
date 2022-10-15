@@ -1,0 +1,95 @@
+{%extends 'base.html' %} {%block title%} Welcome to IBLOGS {%endblock%} {%block content%}
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Utkrishta Bharath</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">Let us make the whole world noble.</h5>
+        </div>
+        <div class="row center">
+            <a href="/category/about" id="download-button" class="btn-large waves-effect waves-light orange">About our club</a>
+        </div>
+        <br><br>
+    </div>
+</div>
+
+<!-- carousel -->
+<div class="container-custom">
+    <div class="owl-carousel">
+        {% for cat in cats %}
+        <div class="card item" style="margin-left:10px;">
+            <div class="img-container">
+                <img src="/media/{{cat.image}}" class="responsive-img" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-title">
+                    {{cat.title}}
+                </div>
+                <p class="truncate">{{cat.description}}</p>
+                <div class="container center-align mt20">
+                    <a href="/category/{{cat.url}}" class="btn bg-primary">VIEW</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- general text -->
+<div class="container">
+    <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Speeds up development</h5>
+                    <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">User Experience Focused</h5>
+                    <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across
+                        all platforms allow for a more unified user experience.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Easy to work with</h5>
+                    <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="section">
+    </div>
+</div>
+
+
+<!-- suggetions -->
+<div class="container hover-container">
+    <div class="row">
+        <div class="col s12 m12 ">
+            {%for p in posts %}
+            <h4>{{p.title}}</h4>
+            <div class="row">
+                <div class="col s12 m9">
+                    {{p.content |truncatewords:60 | safe}}
+                    <div class="mt20">
+                        <a href="/blog/{{p.url}}" class="btn  bg-primary ">Read More..</a>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <img src="/media/{{p.image}}" class="responsive-img" style="margin:5px 5px;">
+                </div>
+            </div>
+            {%endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}

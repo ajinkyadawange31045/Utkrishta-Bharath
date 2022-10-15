@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- {%load static %} -->
+
+<head>
+    <meta charset="UTF-8">
+    <title> {%block title%} {%endblock%} </title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="{% static 'css/header.css' %}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+</head>
+
+<body>
+
+    {%include 'header.html' %} {%block content %} {%endblock%} {% include 'footer.html' %}
+
+    <script>
+        M.AutoInit();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        function toogleMobileNavigation() {
+            var element = document.getElementById("mobile-navigation");
+
+            if (element.classList.contains("mobile-navigation-kholo")) {
+                element.classList.remove("mobile-navigation-kholo")
+            } else {
+                element.classList.add("mobile-navigation-kholo")
+            }
+        }
+
+
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+
+                autoplay: true,
+
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: true,
+                        loop: false
+                    }
+                }
+
+            });
+        });
+
+
+        $(function() {
+
+            $('.toggles button').click(function() {
+                var get_id = this.id;
+                var get_current = $('.posts .' + get_id);
+
+                $('.post').not(get_current).hide(500);
+                get_current.show(500);
+            });
+
+
+            $('#showall').click(function() {
+                $('.post').show(500);
+            });
+
+
+        });
+    </script>
+
+</body>
+
+</html>

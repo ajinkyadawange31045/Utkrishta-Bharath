@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    color: #1ECD97;
+    font: bold 50px Arial;
+    padding: 10px;
+    border-bottom: 1px solid;
+    width: 250px;
+    margin: 0 auto 25px;
+}
+
+.toggles {
+    width: 800px;
+    margin: auto;
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+
+button {
+    border: 2px solid #1ECD97;
+    border-radius: 40px;
+    color: #1ECD97;
+    display: block;
+    float: left;
+    margin: auto;
+    padding: 10px;
+    width: 150px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+.posts {
+    width: 800px;
+    margin: 2em auto;
+}
+
+.post div {
+    font: 16px/250px Arial;
+    width: 245px;
+    height: 250px;
+    float: left;
+    margin: 10px;
+    display: block;
+    text-align: center;
+    background: #1ECD97;
+    color: #fff;
+}
